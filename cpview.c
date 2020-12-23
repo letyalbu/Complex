@@ -12,16 +12,22 @@ int main(int argc, char *argv[])
     Complex complex;
     Polar polar;
 
-    char Error[] = "Formato invalido!\n\nOBS:\ncpview [OPTION] <file_name>\n\nOPTION:\n-a\tforma algébrica (default)\n-p\tforma polar/trigonométrica\n-v\tforma vetorial/geométrica\n\n<file_name>:\nnome do arquivo";
+    char Error[] = "\nOBS:\ncpview [OPTION] <file_name>\n\nOPTION:\n-a\tforma algébrica (default)\n-p\tforma polar/trigonométrica\n-v\tforma vetorial/geométrica\n\n<file_name>:\nnome do arquivo\n";
 
     if (argc != 3)
     {
-        printf("%s", Error);
+        printf("Formato invalido!\n%s", Error);
         exit(1);
     }
 
     strcpy(option, argv[1]);
     arch = fopen(argv[2], "rb");
+
+    if (arch == NULL)
+    {
+        printf("Arquivo Inexistente!\n%s", Error);
+        exit(1);
+    }
 
     if (strcmp(option, "-a") == 0)
     {
@@ -41,7 +47,7 @@ int main(int argc, char *argv[])
     }
     else
     {
-        printf("%s", Error);
+        printf("Formato invalido!\n%s", Error);
         exit(1);
     }
 

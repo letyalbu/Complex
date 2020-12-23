@@ -34,9 +34,9 @@ int main(int argc, char *argv[])
     }
     else if (strcmp(option, "-p") == 0)
     {
-        pch = strtok(num_complex, ";,");
+        pch = strtok(num_complex, ";");
         polar.r = atof(pch);
-        pch = strtok(NULL, ";,");
+        pch = strtok(NULL, ";");
         polar.theta = atof(pch);
 
         complex = polarToAlgebraic(&polar);

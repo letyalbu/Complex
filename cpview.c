@@ -3,8 +3,6 @@
 #include <string.h>
 #include "complex/complex.h"
 
-// Arrumar o view -p
-
 int main(int argc, char *argv[])
 {
     char option[3];

@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include "complex/complex.h"
 
-//OK
-
 int main(int argc, char *argv[])
 {
     FILE *file1;

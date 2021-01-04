@@ -5,8 +5,8 @@ Complex polarToAlgebraic(Polar *P)
 {
     Complex C;
 
-    C.img = P->r * (cos(P->theta) + sin(P->theta));
-    C.real = 0;
+    C.real = (P->r * cos(P->theta * M_PI / 180));
+    C.img = (P->r * sin(P->theta * M_PI / 180));
 
     return C;
 }
@@ -16,11 +16,10 @@ Polar algebraicToPolar(Complex *C)
     Polar P;
 
     P.r = sqrt(pow(C->real, 2) + pow(C->img, 2));
-
     if (P.r < 0)
         P.r *= -1;
 
-    P.theta = 1 / (tan(C->img / C->real));
+    P.theta = atan(C->img / C->real) * 180 / M_PI;
 
     return P;
 }
@@ -55,11 +54,12 @@ Complex MultComplex(Complex *c1, Complex *c2)
     return Mult;
 }
 
-Complex DivComplex(Complex *c1, Complex *c2){
+Complex DivComplex(Complex *c1, Complex *c2)
+{
     Complex Div;
 
-    Div.real = (c1->real * c2->real + c1->img * c2->img) / (pow(c2->real,2) + pow(c2->img,2));
-    Div.img = (c1->img * c2->real - c1->real * c2->img) / (pow(c2->real,2) + pow(c2->img,2));
+    Div.real = (c1->real * c2->real + c1->img * c2->img) / (pow(c2->real, 2) + pow(c2->img, 2));
+    Div.img = (c1->img * c2->real - c1->real * c2->img) / (pow(c2->real, 2) + pow(c2->img, 2));
 
     return Div;
 }

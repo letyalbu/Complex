@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
     if (strcmp(option, "-a") == 0)
     {
         fread(&complex, 1, sizeof(complex), arch);
-        printf("%.0f+%.0fi\n", complex.real, complex.img);
+        printf("%.0lf+%.0lfi\n", complex.real, complex.img);
     }
     else if (strcmp(option, "-p") == 0)
     {
@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
     else if (strcmp(option, "-v") == 0)
     {
         fread(&complex, 1, sizeof(complex), arch);
-        printf("[%.0f,%.0f]\n", complex.real, complex.img);
+        printf("[%.0lf,%.0lf]\n", complex.real, complex.img);
     }
     else
     {

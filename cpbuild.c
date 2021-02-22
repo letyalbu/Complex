@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
 
         complex = polarToAlgebraic(&polar);
 
-        fwrite(&complex,sizeof(complex), 1, arch);
+        fwrite(&complex, sizeof(complex), 1, arch);
     }
     else if (strcmp(option, "-v") == 0)
     {

@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
     Complex complex;
     Polar polar;
 
-    char Error[] = "\nOBS:\ncpview [OPTION] <file_name>\n\nOPTION:\n-a\tforma algébrica (default)\n-p\tforma polar/trigonométrica\n-v\tforma vetorial/geométrica\n\n<file_name>:\nnome do arquivo\n";
+    char Error[] = "\nOBS:\ncpview [OPTION] <file_name>\n\nOPTION:\n-a\tforma algébrica (default)\n-p\tforma polar/trigonométrica\n-v\tforma vetorial/geométrica\n-t\ttodas as anteriores\n\n<file_name>:\nnome do arquivo\n";
 
     if (argc != 3)
     {
@@ -41,6 +41,14 @@ int main(int argc, char *argv[])
     else if (strcmp(option, "-v") == 0)
     {
         fread(&complex, 1, sizeof(complex), arch);
+        printf("[%.0lf,%.0lf]\n", complex.real, complex.img);
+    }
+    else if (strcmp(option, "-t") == 0)
+    {
+        fread(&complex, 1, sizeof(complex), arch);
+        printf("%.0lf+%.0lfi\n", complex.real, complex.img);
+        polar = algebraicToPolar(&complex);
+        printf("%.2lf;%.2lf\n", polar.r, polar.theta);
         printf("[%.0lf,%.0lf]\n", complex.real, complex.img);
     }
     else
